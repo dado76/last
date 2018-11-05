@@ -21,7 +21,7 @@
 
 				background-color:#fff;
 				border:1px solid #ccc;
-				border-radius:5px;
+	
 				margin-top:25px;
 			}
 
@@ -58,28 +58,6 @@
 					<button type="button" id="Ajouter_button" data-toggle="modal" data-target="#userModal" class="btn btn-primary btn"><i class="fa fa-plus"></i> Ajouter</button>
     		<a onclick="javascript:window.print()"><button type="button" id="Ajouter_button" data-toggle="modal" data-target="#userModal" class="btn btn-primary btn"><i class="fa fa-print"></i> Imprimer</button></a>
 			<a href="videoExport.php" target="_parent"><button type="button" href="videoExport.php" class="btn btn-primary btn"><i class="fa fa-file-excel"></i> Export</button></a>
-					<button type="button" id="Ajouter_button" data-toggle="modal" data-target="#userModal" class="btn btn-primary btn"><i class="fa fa-plus"></i> Ajouter</button>
-
-<script>
-	$('#btn-red').click(function(e){
-	          var DATA = "btn-click";
-
-					$.ajax({
-						type: "POST",
-						url: "url de ton script",
-						data: DATA,
-						cache: false,
-						success: function(data){
-						  $("#number").html(data);
-
-						}
-					});
-					return false;
-				});
-
-	});
-
-</script>
 
 <style>
    /*****TABLEAUUU****/
@@ -105,18 +83,18 @@ color: white;
 				<table id="user_data" class="table table-bordered table-striped">
 					<thead>
 						<tr>
-							<th width="10%">Document</th>
-							<th width="10%">site</th>
-							<th width="10%">code</th>
-							<th width="10%">equipement</th>
-						    <th width="10%">numero de serie</th>
-							<th width="10%">repere géograhique</th>
-							<th width="10%">Date d'installation</th>
-							<th width="10%">Duree de garantie</th>
-							<th width="10%">ips</th>
-							<th width="10%">MAC</th>
-							<th width="10%">Modifier</th>
-							<th width="10%">Supprimer</th>
+							<th width="5%">Document</th>
+							<th width="5%">site</th>
+							<th width="5%">code</th>
+							<th width="5%">equipement</th>
+						    <th width="5%">numero de serie</th>
+							<th width="5%">repere géograhique</th>
+							<th width="5%">Date d'installation</th>
+							<th width="5%">Duree de garantie</th>
+							<th width="5%">Adresse IP</th>
+							<th width="5%">MAC</th>
+							<th width="5%">Modifier</th>
+							<th width="5%">Supprimer</th>
 						</tr>
 					</thead>
 				</table>
@@ -197,7 +175,7 @@ $(document).ready(function(){
 		},
 		"columnDefs":[
 			{
-				"targets":[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10,],
+				"targets":[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
 				"orderable":false,
 			},
 		],
