@@ -4,7 +4,7 @@
 
 
       <div class="w3-twothird">
-        <h5>Bilan des BOM's :</h5>
+      
         <table class="w3-table w3-striped w3-white">
           <tr>
             <td><i class="fa fa-database w3-text-blue w3-large"></i></td>
