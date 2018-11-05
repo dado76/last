@@ -1,5 +1,5 @@
 <?php
-include('db.php');
+include('../db.php');
 include('function.php');
 if(isset($_POST["operation"]))
 {
@@ -11,20 +11,22 @@ if(isset($_POST["operation"]))
 			$image = upload_image();
 		}
 		$statement = $connection->prepare("
-			INSERT INTO carte_sims (codification, balise, sim, telephone, idport, immatriculation, statut, rfid, image) 
-			VALUES (:codification, :balise, :sim, :telephone, :idport, :immatriculation, :statut, :rfid, :image,)
+			INSERT INTO video (site, code, equipement, numeroserie, repere, dateinstallation, dureegaranti, ips, mac, image)
+			VALUES (:site, :code, :equipement, :numeroserie, :repere, :dateinstallation, :dureegaranti, :ips, :mac, :image)
 		");
 		$result = $statement->execute(
 			array(
-				':codification'	=>	$_POST["codification"],
-				':balise'	=>	$_POST["balise"],
-				':sim'	=>	$_POST["sim"],
-				':telephone'	=>	$_POST["telephone"],
-				':idport'	=>	$_POST["idport"],
-				':immatriculation'	=>	$_POST["immatriculation"],
-	     		':statut'	=>	$_POST["statut"],
-				':rfid'	=>	$_POST["rfid"],
-														
+				':site'	=>	$_POST["site"],
+				':code'	=>	$_POST["code"],
+				':equipement'	=>	$_POST["equipement"],
+				':numeroserie'	=>	$_POST["numeroserie"],
+				':repere'	=>	$_POST["repere"],
+				':dateinstallation'	=>	$_POST["dateinstallation"],
+	     	':dureegaranti'	=>	$_POST["dureegaranti"],
+				':ips'	=>	$_POST["ips"],
+
+				':mac'	=>	$_POST["mac"],
+
 				':image'		=>	$image
 			)
 		);
@@ -44,23 +46,26 @@ if(isset($_POST["operation"]))
 		{
 			$image = '';
 		}
-		
+
 		$statement = $connection->prepare(
-			"UPDATE carte_sims 
-			SET codification = :codification, balise = :balise, sim = :sim, telephone = :telephone, idport = :idport, immatriculation = :immatriculation, statut = :statut, rfid = :rfid, image = :image  
+			"UPDATE video
+			SET site = :site, code = :code, equipement = :equipement, numeroserie = :numeroserie, repere = :repere, dateinstallation = :dateinstallation, dureegaranti = :dureegaranti, ips = :ips, mac = :mac, image = :image
 			WHERE id = :id
 			"
-		);
+				);
 		$result = $statement->execute(
 			array(
-				':codification'	=>	$_POST["codification"],
-				':balise'	=>	$_POST["balise"],
-				':sim'	=>	$_POST["sim"],
-				':telephone'	=>	$_POST["telephone"],
-				':idport'	=>	$_POST["idport"],
-     			':immatriculation'	=>	$_POST["immatriculation"],
-				':statut'	=>	$_POST["statut"],
-				':rfid'	=>	$_POST["rfid"],	
+				':site'	=>	$_POST["site"],
+				':code'	=>	$_POST["code"],
+				':equipement'	=>	$_POST["equipement"],
+				':numeroserie'	=>	$_POST["numeroserie"],
+				':repere'	=>	$_POST["repere"],
+				':dateinstallation'	=>	$_POST["dateinstallation"],
+	     	':dureegaranti'	=>	$_POST["dureegaranti"],
+				':ips'	=>	$_POST["ips"],
+
+				':mac'	=>	$_POST["mac"],
+
 				':image'		=>	$image,
 				':id'			=>	$_POST["user_id"]
 			)

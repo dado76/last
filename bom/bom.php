@@ -42,16 +42,17 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
     <h5>Dashboard</h5>
   </div>
   <div class="w3-bar-block">
-    <a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>  Close Menu</a>
-    <a href="test.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-home fa-fw"></i>Accueil</a>
-    <a href="#" class="w3-bar-item w3-button w3-padding "><i class="fa fa-map-marker fa-fw"></i>Géolocalisation</a>
-    <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-microphone fa-fw"></i>Radio</a>
-    <a href="#" class="w3-bar-item w3-button w3-padding w3-blue"><i class="fa fa-truck fa-fw"></i>Véhicule de collecte</a>
-    <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-file-video-o fa-fw"></i>Video Protection</a>
-	    <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-user fa-fw"></i>Profil</a>
-    <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-close fa-fw"></i>Deconnection</a><br><br>
+    <a href="../test.php" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>  Close Menu</a>
+    <a href="../test.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-home fa-fw"></i>Accueil</a>
+    <a href="../balise/balise.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-map-marker fa-fw"></i>Géolocalisation</a>
+    <a href="../radio/radio.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-microphone fa-fw "></i>Radio</a>
+    <a href="../bom/bom.php" class="w3-bar-item w3-button w3-padding w3-blue"><i class="fa fa-truck fa-fw"></i>Véhicule de collecte</a>
+    <a href="../video/video.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-file-video-o fa-fw"></i>Video Protection</a>
+	    <a href="../profil.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-user fa-fw"></i>Profil</a>
+    <a href="../logout.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-close fa-fw"></i>Deconnection</a><br><br>
   </div>
 </nav>
+
 
 
 <!-- Overlay effect when opening sidebar on small screens -->

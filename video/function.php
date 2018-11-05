@@ -15,7 +15,7 @@ function upload_image()
 function get_image_name($user_id)
 {
 	include('../db.php');
-	$statement = $connection->prepare("SELECT image FROM carte_sims WHERE id = '$user_id'");
+	$statement = $connection->prepare("SELECT image FROM video WHERE id = '$user_id'");
 	$statement->execute();
 	$result = $statement->fetchAll();
 	foreach($result as $row)
@@ -27,7 +27,7 @@ function get_image_name($user_id)
 function get_total_all_records()
 {
 	include('../db.php');
-	$statement = $connection->prepare("SELECT * FROM carte_sims");
+	$statement = $connection->prepare("SELECT * FROM video");
 	$statement->execute();
 	$result = $statement->fetchAll();
 	return $statement->rowCount();

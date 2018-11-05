@@ -1,5 +1,6 @@
 <html>
 	<head>
+		<title>Webslesson Demo - PHP PDO Ajax CRUD with Data Tables and Bootstrap Modals</title>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
 		<script src="../dataTables.min.js"></script>
@@ -23,6 +24,7 @@
 				border-radius:5px;
 				margin-top:25px;
 			}
+
 		</style>
 	</head>
 	<body>
@@ -36,31 +38,48 @@
 
 
       <div class="w3-container w3-blue w3-padding-16">
-        <div class="w3-left"><i class="fa fa-map-marker w3-xxxlarge"></i></div>
+        <div class="w3-left"><i class="fa fa-file-video w3-xxxlarge"></i></div>
         <div class="w3-right">
 
         </div>
         <div class="w3-clear"></div>
-  <h2> Gestion des radios </h2>
+  <h2>Gestion des équipements de video-protection</h2>
       </div>
 	</div>
 
 
-<?php include('../bilanradio.php'); ?>
+<?php include('../bilangeo.php'); ?>
 
 
 			<br />
 			<div class="table-responsive">
 				<br />
 				<div align="center">
-					<button type="button" id="Ajouter_button" data-toggle="modal" data-target="#userModal" class="btn btn-success btn"><i class="fa fa-plus"></i> Ajouter</button>
-    		<a onclick="javascript:window.print()"><button type="button" id="Ajouter_button" data-toggle="modal" data-target="#userModal" class="btn btn-success btn"><i class="fa fa-print"></i> Imprimer</button></a>
-			<a href="radioExport.php" target="_parent"><button type="button" href="radioExport.php" class="btn btn-success btn"><i class="fa fa-file-excel"></i> Export</button></a>
-  <?php
+					<button type="button" id="Ajouter_button" data-toggle="modal" data-target="#userModal" class="btn btn-primary btn"><i class="fa fa-plus"></i> Ajouter</button>
+    		<a onclick="javascript:window.print()"><button type="button" id="Ajouter_button" data-toggle="modal" data-target="#userModal" class="btn btn-primary btn"><i class="fa fa-print"></i> Imprimer</button></a>
+			<a href="videoExport.php" target="_parent"><button type="button" href="videoExport.php" class="btn btn-primary btn"><i class="fa fa-file-excel"></i> Export</button></a>
+					<button type="button" id="Ajouter_button" data-toggle="modal" data-target="#userModal" class="btn btn-primary btn"><i class="fa fa-plus"></i> Ajouter</button>
 
+<script>
+	$('#btn-red').click(function(e){
+	          var DATA = "btn-click";
 
-	?>
+					$.ajax({
+						type: "POST",
+						url: "url de ton script",
+						data: DATA,
+						cache: false,
+						success: function(data){
+						  $("#number").html(data);
 
+						}
+					});
+					return false;
+				});
+
+	});
+
+</script>
 
 <style>
    /*****TABLEAUUU****/
@@ -70,13 +89,13 @@
 
    }
 
-
    table tr:nth-child(even){background-color: #f2f2f2;}
 
    table tr:hover {background-color: #F7F8E0;}
 
    table th {
-
+background-color: #2196F3;
+color: white;
    }
 
 </style>
@@ -87,12 +106,15 @@
 					<thead>
 						<tr>
 							<th width="10%">Document</th>
-							<th width="10%">numero_appel</th>
-							<th width="10%">codification</th>
-							<th width="10%">numero de serie</th>
-						    <th width="10%">Type</th>
-							<th width="10%">Statut</th>
-							<th width="10%">Modele</th>
+							<th width="10%">site</th>
+							<th width="10%">code</th>
+							<th width="10%">equipement</th>
+						    <th width="10%">numero de serie</th>
+							<th width="10%">repere géograhique</th>
+							<th width="10%">Date d'installation</th>
+							<th width="10%">Duree de garantie</th>
+							<th width="10%">ips</th>
+							<th width="10%">MAC</th>
 							<th width="10%">Modifier</th>
 							<th width="10%">Supprimer</th>
 						</tr>
@@ -110,37 +132,39 @@
 			<div class="modal-content">
 				<div class="modal-header">
 
-					<h4 class="modal-title">Ajouter une radio</h4>
+					<h4 class="modal-title">Ajouter une code</h4>
 				</div>
 				<div class="modal-body">
-					<label>Numéro d'appel</label>
-					<input type="text" name="numero_appel" id="numero_appel" class="form-control" />
+					<label>site</label>
+					<input type="text" name="site" id="site" class="form-control" />
 					<br />
-					<label>Codification</label>
-					<input type="text" name="codification" id="codification" class="form-control" />
+					<label>code</label>
+					<input type="text" name="code" id="code" class="form-control" />
 					<br />
-					<label>numero de série</label>
-					<input type="text" name="numero_serie" id="numero_serie" class="form-control" />
+					<label>equipement</label>
+					<input type="text" name="equipement" id="equipement" class="form-control" />
 					<br />
-					<label>Type</label>
-					<input type="text" name="type" id="type" class="form-control" />
+					<label>numero de serie</label>
+					<input type="text" name="numeroserie" id="numeroserie" class="form-control" />
 					<br />
-					<label>Statut</label>
-					<select type="text" name="statut" id="statut" class="form-control">
-
-							<option>EN SERVICE</option>
-						 <option>REFORME</option>
-							 <option>SAV</option>
-								 <option>EN STOCK</option>
-					</select>
-					<label>Modele</label>
-					<input type="text" name="modele" id="modele" class="form-control" />
+					<label>Repére géographique</label>
+					<input type="text" name="repere" id="repere" class="form-control" />
 					<br />
-
-
+					<label>Date d'installation</label>
+					<input type="text" name="dateinstallation" id="dateinstallation" class="form-control" />
+					<br />
+				<label>duree de garantie</label>
+					<input type="text" name="dureegaranti" id="dureegaranti" class="form-control" />
+					<br />
+					<label>Adresse IP</label>
+						<input type="text" name="ips" id="ips" class="form-control" />
+						<br />
+						<label>Adresse MAC  </label>
+							<input type="text" name="mac" id="mac" class="form-control" />
+							<br />
 					<label>Selection du document</label>
 					<input type="file" name="user_image" id="user_image" />
-			<input type="image" src="test.jpg" height="30" width="30"/>
+			<input type="image" src="../test.jpg" height="30" width="30"/>
 				</div>
 				<div class="modal-footer">
 					<input type="hidden" name="user_id" id="user_id" />
@@ -157,7 +181,7 @@
 $(document).ready(function(){
 	$('#Add_button').click(function(){
 		$('#user_form')[0].reset();
-		$('.modal-title').text("Ajouter radio");
+		$('.modal-title').text("Ajouter code");
 		$('#action').val("Ajouter");
 		$('#operation').val("Ajouter");
 		$('#user_uploaded_image').html('');
@@ -184,12 +208,15 @@ $(document).ready(function(){
 
 	$(document).on('submit', '#user_form', function(event){
 		event.preventDefault();
-		var numero_appel = $('#numero_appel').val();
-		var codification = $('#codification').val();
-		var numero_serie = $('#numero_serie').val();
-		var type = $('#type').val();
-		var statut = $('#statut').val();
-		var modele = $('#modele').val();
+		var firstName = $('#site').val();
+		var lastName = $('#code').val();
+		var equipement = $('#equipement').val();
+		var numeroserie = $('#numeroserie').val();
+		var repere = $('#repere').val();
+		var dateinstallation = $('#dateinstallation').val();
+		var dureegaranti = $('#dureegaranti').val();
+		var ips = $('#ips').val();
+		var mac = $('#mac').val();
 		var extension = $('#user_image').val().split('.').pop().toLowerCase();
 		if(extension != '')
 		{
@@ -200,7 +227,7 @@ $(document).ready(function(){
 				return false;
 			}
 		}
-		if(numero_appel != '' && codification != '')
+		if(firstName != '' && lastName != '')
 		{
 			$.ajax({
 				url:"insert.php",
@@ -233,14 +260,16 @@ $(document).ready(function(){
 			success:function(data)
 			{
 				$('#userModal').modal('show');
-				$('#numero_appel').val(data.numero_appel);
-				$('#codification').val(data.codification)  ;
-				$('#numero_serie').val(data.numero_serie);
-				$('#type').val(data.type);
-				$('#statut').val(data.statut);
-				$('#modele').val(data.modele);
-
-				$('.modal-title').text("Modifier Carte sims");
+				$('#site').val(data.site)  ;
+				$('#code').val(data.code);
+				$('#equipement').val(data.equipement);
+				$('#numeroserie').val(data.numeroserie);
+				$('#repere').val(data.repere);
+				$('#dateinstallation').val(data.dateinstallation);
+				$('#dureegaranti').val(data.dureegaranti);
+				$('#ips').val(data.ips);
+				$('#mac').val(data.mac);
+				$('.modal-title').text("Modifier Carte equipements");
 				$('#user_id').val(user_id);
 				$('#user_uploaded_image').html(data.user_image);
 				$('#action').val("Modifier");

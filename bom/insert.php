@@ -28,7 +28,7 @@ if(isset($_POST["operation"]))
 
 				':image'		=>	$image
 			)
-			
+
 		);
 		if(!empty($result))
 		{

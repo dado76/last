@@ -3,13 +3,12 @@ include('../db.php');
 include('function.php');
 $query = '';
 $output = array();
-$query .= "SELECT * FROM carte_sims ";
+$query .= "SELECT * FROM video ";
 if(isset($_POST["search"]["value"]))
 {
-	$query .= 'WHERE codification LIKE "%'.$_POST["search"]["value"].'%" ';
-	$query .= 'OR statut LIKE "%'.$_POST["search"]["value"].'%" ';
+	$query .= 'WHERE site LIKE "%'.$_POST["search"]["value"].'%" ';
+	$query .= 'OR equipement LIKE "%'.$_POST["search"]["value"].'%" ';
 }
-
 
 
 
@@ -22,7 +21,7 @@ if(isset($_POST["order"]))
 }
 else
 {
-	$query .= 'ORDER BY codification ';
+	$query .= 'ORDER BY site ';
 }
 if($_POST["length"] != -1)
 {
@@ -45,36 +44,19 @@ foreach($result as $row)
 		$image = '';
 	}
 
-	if($row["statut"] == "EN SERVICE")
-	{
-		$statut = '<p style="color:green;">EN SERVICE</p>';
-	}
 
-		elseif($row["statut"] == "EN STOCK")
-	{
-		$statut = '<p style="color:orange;">EN STOCK</p>';
-
-	}
-		elseif($row["statut"] == "REFORME")
-	{
-		$statut = '<p style="color:red;">REFORME</p>';
-	}
-	else
-	{
-		$statut = $row["statut"];
-	}
 	$sub_array = array();
 	$sub_array[] = $image;
-	$sub_array[] = $row["codification"];
-	$sub_array[] = $row["balise"];
-	$sub_array[] = $row["sim"];
-	$sub_array[] = $row["telephone"];
-	$sub_array[] = $row["idport"];
-	$sub_array[] = $row["immatriculation"];
-	$sub_array[] = $statut;
-	$sub_array[] = $row["rfid"];
-
-	$sub_array[] = '<a type="button" name="Modifier" id="'.$row["id"].'" class="btn btn-success btn Modifier"><i class="fa fa-edit"></i> </a>';
+	$sub_array[] = $row["site"];
+	$sub_array[] = $row["code"];
+	$sub_array[] = $row["equipement"];
+	$sub_array[] = $row["numeroserie"];
+	$sub_array[] = $row["repere"];
+	$sub_array[] = $row["dateinstallation"];
+	$sub_array[] = $row["dureegaranti"];
+	$sub_array[] = $row["ips"];
+		$sub_array[] = $row["mac"];
+	$sub_array[] = '<a type="button" name="Modifier" id="'.$row["id"].'" class="btn btn-primary btn Modifier"><i class="fa fa-edit"></i> </a>';
 	$sub_array[] = '<a type="button" name="Supprimer" id="'.$row["id"].'" class="btn btn-danger btn Supprimer"><i class="fa fa-close"></i> </a>';
 	$data[] = $sub_array;
 }

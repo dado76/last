@@ -63,25 +63,20 @@
 	?>
 
 
-<style>
-   /*****TABLEAUUU****/
-   table {
-       font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-       border-collapse: collapse;
 
-   }
+	<style>
+	   /*****TABLEAUUU****/
 
+	   table tr:nth-child(even){background-color: #f2f2f2;}
 
-   table tr:nth-child(even){background-color: #f2f2f2;}
+	   table tr:hover {background-color: #F7F8E0;}
 
-   table tr:hover {background-color: #F7F8E0;}
+	   table th {
+	background-color: #2196F3;
+	color: white;
+	   }
 
-   table th {
-
-   }
-
-</style>
-
+	</style>
 				</div>
 				<br /><br />
 				<table id="user_data" class="table table-bordered table-striped">

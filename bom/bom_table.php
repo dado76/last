@@ -63,24 +63,25 @@
 	?>
 
 
-<style>
-   /*****TABLEAUUU****/
-   table {
-       font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-       border-collapse: collapse;
 
-   }
+	<style>
+	   /*****TABLEAUUU****/
+	   table {
+	       font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+	       border-collapse: collapse;
 
+	   }
 
-   table tr:nth-child(even){background-color: #f2f2f2;}
+	   table tr:nth-child(even){background-color: #f2f2f2;}
 
-   table tr:hover {background-color: #F7F8E0;}
+	   table tr:hover {background-color: #F7F8E0;}
 
-   table th {
+	   table th {
+	background-color: #2196F3;
+	color: white;
+	   }
 
-   }
-
-</style>
+	</style>
 
 				</div>
 				<br /><br />

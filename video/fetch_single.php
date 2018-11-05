@@ -5,7 +5,7 @@ if(isset($_POST["user_id"]))
 {
 	$output = array();
 	$statement = $connection->prepare(
-		"SELECT * FROM carte_sims
+		"SELECT * FROM video
 		WHERE id = '".$_POST["user_id"]."'
 		LIMIT 1"
 	);
@@ -13,14 +13,15 @@ if(isset($_POST["user_id"]))
 	$result = $statement->fetchAll();
 	foreach($result as $row)
 	{
-		$output["codification"] = $row["codification"];
-		$output["balise"] = $row["balise"];
-		$output["sim"] = $row["sim"];
-		$output["telephone"] = $row["telephone"];
-		$output["idport"] = $row["idport"];
-		$output["immatriculation"] = $row["immatriculation"];
-		$output["statut"] = $row["statut"];
-		$output["rfid"] = $row["rfid"];
+		$output["site"] = $row["site"];
+		$output["code"] = $row["code"];
+		$output["equipement"] = $row["equipement"];
+		$output["numeroserie"] = $row["numeroserie"];
+		$output["repere"] = $row["repere"];
+		$output["dateinstallation"] = $row["dateinstallation"];
+		$output["dureegaranti"] = $row["dureegaranti"];
+		$output["ips"] = $row["ips"];
+		$output["mac"] = $row["mac"];
 		if($row["image"] != '')
 		{
 			$output['user_image'] = '<img src="../upload/'.$row["image"].'" class="img-thumbnail" width="50" height="35" /><input type="hidden" name="hidden_user_image" value="'.$row["image"].'" />';
